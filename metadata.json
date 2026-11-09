@@ -1,0 +1,6 @@
+{
+  "name": "مديرية السياحة والصناعة التقليدية لولاية تندوف",
+  "description": "المنصة السياحية الرقمية الرسمية لولاية تندوف - دليل شامل للمسالك السياحية والمعالم التاريخية والطبيعية ومؤسسات الإيواء والوكالات والحرفيين.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

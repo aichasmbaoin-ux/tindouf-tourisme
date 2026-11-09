@@ -1,0 +1,277 @@
+{
+  "entities": {
+    "TourismRoute": {
+      "title": "TourismRoute",
+      "description": "Represents a curated tourism trail or itinerary in Tindouf province",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "nameFr": { "type": "string" },
+        "coverImage": { "type": "string" },
+        "description": { "type": "string" },
+        "descriptionFr": { "type": "string" },
+        "character": { "type": "string", "enum": ["cultural", "historical", "natural", "desert", "mixed"] },
+        "startPoint": { "type": "string" },
+        "startPointFr": { "type": "string" },
+        "endPoint": { "type": "string" },
+        "endPointFr": { "type": "string" },
+        "distanceKm": { "type": "number" },
+        "duration": { "type": "string" },
+        "durationFr": { "type": "string" },
+        "stagesCount": { "type": "number" },
+        "type": { "type": "string", "enum": ["short", "medium", "long"] },
+        "suitableSeason": { "type": "string" },
+        "suitableSeasonFr": { "type": "string" },
+        "transportMode": { "type": "string" },
+        "transportModeFr": { "type": "string" },
+        "gallery": { "type": "array" },
+        "sitesPassed": { "type": "array" },
+        "isPublished": { "type": "boolean" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "name", "coverImage", "character", "type", "isPublished"]
+    },
+    "RouteStop": {
+      "title": "RouteStop",
+      "description": "A specific stage or waypoint within a tourism route",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "routeId": { "type": "string" },
+        "name": { "type": "string" },
+        "nameFr": { "type": "string" },
+        "description": { "type": "string" },
+        "descriptionFr": { "type": "string" },
+        "order": { "type": "number" },
+        "latitude": { "type": "number" },
+        "longitude": { "type": "number" },
+        "imageUrl": { "type": "string" },
+        "isPublished": { "type": "boolean" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "routeId", "name", "order", "latitude", "longitude"]
+    },
+    "Hotel": {
+      "title": "Hotel",
+      "description": "Hospitality and accommodation establishment in Tindouf",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "nameFr": { "type": "string" },
+        "managerName": { "type": "string" },
+        "address": { "type": "string" },
+        "addressFr": { "type": "string" },
+        "phone": { "type": "string" },
+        "secondaryPhone": { "type": "string" },
+        "email": { "type": "string" },
+        "latitude": { "type": "number" },
+        "longitude": { "type": "number" },
+        "imageUrl": { "type": "string" },
+        "gallery": { "type": "array" },
+        "description": { "type": "string" },
+        "descriptionFr": { "type": "string" },
+        "amenities": { "type": "array" },
+        "stars": { "type": "number" },
+        "isPublished": { "type": "boolean" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "name", "address", "phone", "isPublished"]
+    },
+    "TravelAgency": {
+      "title": "TravelAgency",
+      "description": "Tourism and travel agency operating in Tindouf",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "nameFr": { "type": "string" },
+        "managerName": { "type": "string" },
+        "address": { "type": "string" },
+        "addressFr": { "type": "string" },
+        "phone": { "type": "string" },
+        "secondaryPhone": { "type": "string" },
+        "email": { "type": "string" },
+        "latitude": { "type": "number" },
+        "longitude": { "type": "number" },
+        "logoUrl": { "type": "string" },
+        "servicesDescription": { "type": "string" },
+        "servicesDescriptionFr": { "type": "string" },
+        "isPublished": { "type": "boolean" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "name", "address", "phone", "isPublished"]
+    },
+    "Artisan": {
+      "title": "Artisan",
+      "description": "Traditional artisan registered in Tindouf province",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "fullName": { "type": "string" },
+        "fullNameFr": { "type": "string" },
+        "craftType": { "type": "string" },
+        "craftTypeFr": { "type": "string" },
+        "craftCategory": { "type": "string" },
+        "craftDescription": { "type": "string" },
+        "craftDescriptionFr": { "type": "string" },
+        "address": { "type": "string" },
+        "addressFr": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "latitude": { "type": "number" },
+        "longitude": { "type": "number" },
+        "imageUrl": { "type": "string" },
+        "productImages": { "type": "array" },
+        "isPublished": { "type": "boolean" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "fullName", "craftType", "phone", "isPublished"]
+    },
+    "TouristSite": {
+      "title": "TouristSite",
+      "description": "Historical, natural, or cultural tourist site in Tindouf",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "nameFr": { "type": "string" },
+        "category": { "type": "string", "enum": ["historical", "natural", "cultural", "religious", "archaeological"] },
+        "description": { "type": "string" },
+        "descriptionFr": { "type": "string" },
+        "address": { "type": "string" },
+        "latitude": { "type": "number" },
+        "longitude": { "type": "number" },
+        "imageUrl": { "type": "string" },
+        "gallery": { "type": "array" },
+        "isFeatured": { "type": "boolean" },
+        "isPublished": { "type": "boolean" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "name", "category", "latitude", "longitude", "isPublished"]
+    },
+    "SiteCategory": {
+      "title": "SiteCategory",
+      "description": "Classification category for attractions and crafts",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "nameFr": { "type": "string" },
+        "icon": { "type": "string" }
+      },
+      "required": ["id", "name"]
+    },
+    "DirectorateInfo": {
+      "title": "DirectorateInfo",
+      "description": "Official contact info and identity of Direction du Tourisme et de l'Artisanat de Tindouf",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "officialNameAr": { "type": "string" },
+        "officialNameFr": { "type": "string" },
+        "ministryAr": { "type": "string" },
+        "ministryFr": { "type": "string" },
+        "stateAr": { "type": "string" },
+        "stateFr": { "type": "string" },
+        "address": { "type": "string" },
+        "phone": { "type": "string" },
+        "fax": { "type": "string" },
+        "email": { "type": "string" },
+        "facebook": { "type": "string" },
+        "instagram": { "type": "string" },
+        "twitter": { "type": "string" },
+        "logoUrl": { "type": "string" },
+        "latitude": { "type": "number" },
+        "longitude": { "type": "number" }
+      },
+      "required": ["id", "officialNameAr", "phone", "email"]
+    },
+    "HomepageSettings": {
+      "title": "HomepageSettings",
+      "description": "Visual settings and welcome messages for the homepage",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "heroTitleAr": { "type": "string" },
+        "heroTitleFr": { "type": "string" },
+        "heroSubtitleAr": { "type": "string" },
+        "heroSubtitleFr": { "type": "string" },
+        "heroImageUrl": { "type": "string" },
+        "showRoutesSection": { "type": "boolean" },
+        "showHotelsSection": { "type": "boolean" },
+        "showAgenciesSection": { "type": "boolean" },
+        "showArtisansSection": { "type": "boolean" },
+        "showSitesSection": { "type": "boolean" },
+        "showMapSection": { "type": "boolean" }
+      },
+      "required": ["id", "heroTitleAr", "heroImageUrl"]
+    },
+    "AdminUser": {
+      "title": "AdminUser",
+      "description": "Authorized administrator user profile for the dashboard",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["superadmin", "editor"] },
+        "displayName": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "email", "role"]
+    }
+  },
+  "firestore": {
+    "/tourism_routes/{routeId}": {
+      "schema": { "$ref": "#/entities/TourismRoute" },
+      "description": "Collection of tourist routes and itineraries across Tindouf"
+    },
+    "/route_stops/{stopId}": {
+      "schema": { "$ref": "#/entities/RouteStop" },
+      "description": "Collection of route waypoints and stages with geographic coordinates"
+    },
+    "/hotels/{hotelId}": {
+      "schema": { "$ref": "#/entities/Hotel" },
+      "description": "Directory of hotels and lodging institutions in Tindouf"
+    },
+    "/travel_agencies/{agencyId}": {
+      "schema": { "$ref": "#/entities/TravelAgency" },
+      "description": "Directory of tourism and travel travel agencies in Tindouf"
+    },
+    "/artisans/{artisanId}": {
+      "schema": { "$ref": "#/entities/Artisan" },
+      "description": "Directory of registered artisans and handicrafts in Tindouf"
+    },
+    "/tourist_sites/{siteId}": {
+      "schema": { "$ref": "#/entities/TouristSite" },
+      "description": "Historical, archaeological, and natural landmarks"
+    },
+    "/site_categories/{categoryId}": {
+      "schema": { "$ref": "#/entities/SiteCategory" },
+      "description": "Taxonomy categories for landmarks and crafts"
+    },
+    "/directorate_info/{infoId}": {
+      "schema": { "$ref": "#/entities/DirectorateInfo" },
+      "description": "Official institutional contact and presence information"
+    },
+    "/homepage_settings/{settingId}": {
+      "schema": { "$ref": "#/entities/HomepageSettings" },
+      "description": "Configurable hero banners and section display toggles"
+    },
+    "/admins/{adminId}": {
+      "schema": { "$ref": "#/entities/AdminUser" },
+      "description": "Designated administrator records with role definitions"
+    },
+    "/test/{testId}": {
+      "schema": { "$ref": "#/entities/AdminUser" },
+      "description": "Heartbeat and connection validation endpoint"
+    }
+  }
+}

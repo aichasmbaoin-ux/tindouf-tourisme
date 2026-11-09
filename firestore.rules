@@ -1,0 +1,93 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return (request.auth != null && (
+        (request.auth.token.email == "aichasmbaoin@gmail.com") ||
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+      ));
+    }
+
+    // Default deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Connection validation
+    match /test/{testId} {
+      allow read: if true;
+    }
+
+    // Admins collection
+    match /admins/{adminId} {
+      allow get: if true;
+      allow list: if true;
+      allow create, update, delete: if isValidId(adminId);
+    }
+
+    // Tourism Routes
+    match /tourism_routes/{routeId} {
+      allow read: if true;
+      allow create, update, delete: if isValidId(routeId);
+    }
+
+    // Route Stops
+    match /route_stops/{stopId} {
+      allow read: if true;
+      allow create, update, delete: if isValidId(stopId);
+    }
+
+    // Hotels and Accommodation
+    match /hotels/{hotelId} {
+      allow read: if true;
+      allow create, update, delete: if isValidId(hotelId);
+    }
+
+    // Travel Agencies
+    match /travel_agencies/{agencyId} {
+      allow read: if true;
+      allow create, update, delete: if isValidId(agencyId);
+    }
+
+    // Artisans and Handicrafts
+    match /artisans/{artisanId} {
+      allow read: if true;
+      allow create, update, delete: if isValidId(artisanId);
+    }
+
+    // Tourist Sites
+    match /tourist_sites/{siteId} {
+      allow read: if true;
+      allow create, update, delete: if isValidId(siteId);
+    }
+
+    // Categories
+    match /site_categories/{categoryId} {
+      allow read: if true;
+      allow create, update, delete: if isValidId(categoryId);
+    }
+
+    // Directorate Info
+    match /directorate_info/{infoId} {
+      allow read: if true;
+      allow create, update, delete: if isValidId(infoId);
+    }
+
+    // Homepage Settings
+    match /homepage_settings/{settingId} {
+      allow read: if true;
+      allow create, update, delete: if isValidId(settingId);
+    }
+  }
+}
